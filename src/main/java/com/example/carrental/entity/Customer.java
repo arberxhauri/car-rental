@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -64,4 +66,7 @@ public class Customer {
     @Min(value = 18, message = "Age must be at least 18")
     @Column(name = "AGE")
     private int age;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 }
