@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,13 +15,10 @@ public class ReservationDto {
 
     private LocalDate dateOfBooking;
 
-//    @ManyToOne
-//    @JoinColumn(name = "CLIENT_ID",nullable = false)
-//    private Client client;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "CAR_ID",nullable = false)
-//    private Car car;
+
+    private long costumer_id;
+
+    private UUID car_id;
 
     private LocalDate departureDate;
 

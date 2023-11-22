@@ -28,6 +28,8 @@ public class ReservationMapper {
         reservationDto.setDepartureDate(reservation.getDepartureDate());
         reservationDto.setReturnDate(reservation.getReturnDate());
         reservationDto.setAmount(reservation.getAmount());
+        reservationDto.setCostumer_id(reservation.getCostumer().getId());
+        reservationDto.setCar_id(reservation.getCar().getId());
 
         return reservationDto;
     }
