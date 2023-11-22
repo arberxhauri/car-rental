@@ -1,8 +1,11 @@
 package com.example.carrental.dto;
 
+import com.example.carrental.entity.Role;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -47,4 +50,6 @@ public class CustomerDto {
 
     @NotEmpty(message = "Phone number must not be empty")
     private String phone_number;
+
+    private Set<Role> roleSet;
 }
