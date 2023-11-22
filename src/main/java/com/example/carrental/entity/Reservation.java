@@ -31,13 +31,13 @@ public class Reservation {
     @Valid
     private LocalDate dateOfBooking;
 
-//    @ManyToOne
-//    @JoinColumn(name = "CLIENT_ID",nullable = false)
-//    private Client client;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "CAR_ID",nullable = false)
-//    private Car car;
+    @ManyToOne
+    @JoinColumn(name = "CLIENT_ID",nullable = false)
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "CAR_ID",nullable = false)
+    private Car car;
 
     //@NotEmpty(message = "Departure date must not be empty")
     @NotNull
