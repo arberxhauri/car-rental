@@ -23,7 +23,7 @@ import java.util.UUID;
 public class Costumer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @NotBlank(message = "First name cannot be blank")
