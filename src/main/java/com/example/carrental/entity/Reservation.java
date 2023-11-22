@@ -33,7 +33,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "CLIENT_ID",nullable = false)
-    private Customer customer;
+    private Costumer customer;
 
     @ManyToOne
     @JoinColumn(name = "CAR_ID",nullable = false)
