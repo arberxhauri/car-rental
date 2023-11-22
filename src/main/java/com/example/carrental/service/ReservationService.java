@@ -1,8 +1,12 @@
 package com.example.carrental.service;
 
 import com.example.carrental.dto.ReservationDto;
+import com.example.carrental.entity.Car;
+import com.example.carrental.entity.Costumer;
 import com.example.carrental.entity.Reservation;
 import com.example.carrental.mapper.ReservationMapper;
+import com.example.carrental.repository.CarRepository;
+import com.example.carrental.repository.CostumerRepository;
 import com.example.carrental.repository.ReservationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,9 +21,17 @@ public class ReservationService {
 
     private ReservationRepository reservationRepository;
     private ReservationMapper reservationMapper;
+    private CarRepository carRepository;
+    private CostumerRepository costumerRepository;
 
     public ReservationDto saveReservation(ReservationDto reservationDto) {
+        Car existingCar = carRepository.findById(reservationDto.getCarId()).orElseThrow(() ->
+                new RuntimeException("Car not found!"));
+        Costumer existingCostumer = costumerRepository.findById(reservationDto.getCostumerId()).orElseThrow(() ->
+                new RuntimeException("Costumer not found!"));
         Reservation reservation = reservationMapper.mapToEntity(reservationDto);
+        reservation.setCar(existingCar);
+        reservation.setCostumer(existingCostumer);
         Reservation savedReservation = reservationRepository.save(reservation);
 
         return reservationMapper.mapToDto(savedReservation);

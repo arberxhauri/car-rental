@@ -2,12 +2,16 @@ package com.example.carrental.mapper;
 
 import com.example.carrental.dto.ReservationDto;
 import com.example.carrental.entity.Reservation;
+import com.example.carrental.repository.CarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
 public class ReservationMapper {
+
+    private CarRepository carRepository;
+    private CarMapper carMapper;
 
     public Reservation mapToEntity(ReservationDto reservationDto){
         Reservation reservation  =new Reservation();
@@ -28,8 +32,8 @@ public class ReservationMapper {
         reservationDto.setDepartureDate(reservation.getDepartureDate());
         reservationDto.setReturnDate(reservation.getReturnDate());
         reservationDto.setAmount(reservation.getAmount());
-        reservationDto.setCostumer_id(reservation.getCostumer().getId());
-        reservationDto.setCar_id(reservation.getCar().getId());
+        reservationDto.setCostumerId(reservation.getCostumer().getId());
+        reservationDto.setCarId(reservation.getCar().getId());
 
         return reservationDto;
     }
