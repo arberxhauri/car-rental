@@ -25,7 +25,6 @@ public class CarController {
 
     @PostMapping("/save")
     public CarDto save(@Valid @RequestBody CarDto carDto){
-        carDto.setId(UUID.randomUUID());
         return carService.save(carDto);
     }
 
@@ -35,7 +34,7 @@ public class CarController {
     }
 
     @GetMapping("/{id}")
-    public CarDto findById(@PathVariable UUID id){
+    public CarDto findById(@PathVariable long id){
         return carService.findById(id);
     }
 
@@ -46,12 +45,12 @@ public class CarController {
 
     @PutMapping("/update/{carId}")
     public CarDto updateCar(@RequestBody CarDto carDto,
-                            @PathVariable(name = "carId") UUID carId){
+                            @PathVariable(name = "carId") long carId){
         return carService.updateCar(carDto, carId);
     }
 
     @DeleteMapping("/delete/{carId}")
-    public  String delete(@PathVariable(name = "carId") UUID carId){
+    public  String delete(@PathVariable(name = "carId") long carId){
         return carService.deleteCar(carId);
     }
 }

@@ -15,7 +15,7 @@ import java.util.UUID;
 @Setter
 public class CarDto {
 
-    private UUID id;
+    private long id;
 
     @NotBlank(message = "Brand cannot be blank")
     @Size(max = 50, message = "Brand cannot exceed 50 characters")

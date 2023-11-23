@@ -18,7 +18,7 @@ public class ReservationDto {
 
     private long costumerId;
 
-    private UUID carId;
+    private long carId;
 
     private LocalDate departureDate;
 

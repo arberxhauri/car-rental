@@ -46,26 +46,34 @@ public class CarService {
 //        return carList.stream().map(car -> carMapper.mapToDto(car)).collect(Collectors.toList());
 //    }
 
-    public CarDto findById(UUID carId) {
+    public CarDto findById(long carId) {
         Car existingCar = carRepository.findById(carId).orElseThrow(() ->
                 new RuntimeException("Car with id: " + carId + " was not found!"));
 
         return carMapper.mapToDto(existingCar);
     }
 
-    public CarDto updateCar(CarDto carDto, UUID carId) {
+    public CarDto updateCar(CarDto carDto, long carId) {
         Car existingCar = carRepository.findById(carId).orElseThrow(() ->
                 new RuntimeException("Car with id: " + carId + " was not found!"));
 
         Car car = carMapper.mapToEntity(carDto);
-        car.setId(carId);
+//        car.setId(carId);
+//        car.setBrand(carDto.getBrand());
+//        car.setModel(carDto.getModel());
+//        car.setLicensePlate(carDto.getLicensePlate());
+//        car.setYear(carDto.getYear());
+//        car.setStatus(carDto.getStatus());
+//        car.setAmount(carDto.getAmount());
+//        car.setMileage(carDto.getMileage());
+//        car.setColor(carDto.getColor());
 
         Car savedCar = carRepository.save(car);
 
         return carMapper.mapToDto(savedCar);
     }
 
-    public String deleteCar(UUID carId) {
+    public String deleteCar(long carId) {
         Car existingCar = carRepository.findById(carId).orElseThrow(() ->
                 new RuntimeException("Car with id: " + carId + " was not found!"));
         carRepository.delete(existingCar);

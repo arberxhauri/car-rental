@@ -45,10 +45,8 @@ public class CostumerService {
         existingCostumer.setId(costumerId);
         existingCostumer.setFirstName(costumerDto.getFirstName());
         existingCostumer.setLastName(costumerDto.getLastName());
-        existingCostumer.setEmail(costumerDto.getEmail());
         existingCostumer.setAddress(costumerDto.getAddress());
         existingCostumer.setPhoneNumber(costumerDto.getPhoneNumber());
-        existingCostumer.setEmail(costumerDto.getEmail());
         existingCostumer.setPassword(costumerDto.getPassword());
         existingCostumer.setRoles((costumerDto.getRoleSet()));
 

@@ -24,8 +24,8 @@ import java.util.UUID;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @NotBlank(message = "Brand cannot be blank")
     @Size(max = 50, message = "Brand cannot exceed 50 characters")
