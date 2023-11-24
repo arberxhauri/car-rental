@@ -54,4 +54,18 @@ public class Reservation {
     @Column(name = "AMOUNT",nullable = false)
     private double amount;
 
+    public void validate() throws IllegalArgumentException {
+        if (dateOfBooking == null || departureDate == null || returnDate == null) {
+            throw new IllegalArgumentException("Date fields cannot be null");
+        }
+
+        if (departureDate.isAfter(returnDate)) {
+            throw new IllegalArgumentException("Invalid date range. 'dateFrom' must be before or equal to 'dateTo'");
+        }
+
+        if (amount < 0) {
+            throw new IllegalArgumentException("'amountPerDay' must be a non-negative value");
+        }
+    }
+
 }

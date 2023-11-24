@@ -39,7 +39,7 @@ public class ReservationService {
         double amount = calculateAmount(reservationDto.getDepartureDate(),
                 reservationDto.getReturnDate(),existingCar.getAmount());
         reservation.setAmount(amount);
-
+        reservation.validate();
         Reservation savedReservation = reservationRepository.save(reservation);
 
         return reservationMapper.mapToDto(savedReservation);
