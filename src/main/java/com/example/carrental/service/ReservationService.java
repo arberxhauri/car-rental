@@ -11,6 +11,8 @@ import com.example.carrental.repository.ReservationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,9 +34,20 @@ public class ReservationService {
         Reservation reservation = reservationMapper.mapToEntity(reservationDto);
         reservation.setCar(existingCar);
         reservation.setCostumer(existingCostumer);
+
+
+        double amount = calculateAmount(reservationDto.getDepartureDate(),
+                reservationDto.getReturnDate(),existingCar.getAmount());
+        reservation.setAmount(amount);
+
         Reservation savedReservation = reservationRepository.save(reservation);
 
         return reservationMapper.mapToDto(savedReservation);
+    }
+    public double calculateAmount(LocalDate departureDate,LocalDate returnDate,double amount){
+
+        Period period = Period.between(departureDate,returnDate);
+        return period.getDays()*amount;
     }
 
     public List<ReservationDto> getAllReservations() {
@@ -56,16 +69,21 @@ public class ReservationService {
 
 
     }
-    public ReservationDto updateReservation(Long id, Reservation updatedReservation) {
+    public ReservationDto updateReservation(Long id, ReservationDto updatedReservation) {
 
         Reservation existingReservation = reservationRepository.findById(id).orElseThrow(
                 ()-> new RuntimeException("Reservation with id: "+id+" not found!"));
 
-        existingReservation.setReservation_id(updatedReservation.getReservation_id());
+        existingReservation.setReservation_id(id);
         existingReservation.setDateOfBooking(updatedReservation.getDateOfBooking());
         existingReservation.setDepartureDate(updatedReservation.getDepartureDate());
         existingReservation.setReturnDate(updatedReservation.getReturnDate());
-        existingReservation.setAmount(updatedReservation.getAmount());
+        existingReservation.getCostumer().setId(updatedReservation.getCostumerId());
+        existingReservation.getCar().setId(updatedReservation.getCarId());
+
+        double amount = calculateAmount(updatedReservation.getDepartureDate(),
+                updatedReservation.getReturnDate(),existingReservation.getCar().getAmount());
+        existingReservation.setAmount(amount);
 
         Reservation savedReservation = reservationRepository.save(existingReservation);
         return reservationMapper.mapToDto(savedReservation);

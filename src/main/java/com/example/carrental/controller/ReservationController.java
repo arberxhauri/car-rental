@@ -31,7 +31,7 @@ public class ReservationController {
     }
 
     @PutMapping("/update/{reservation_id}")
-    public ReservationDto updateReservation(@PathVariable(name = "reservation_id") Long reservation_id, @RequestBody Reservation updatedReservation) {
+    public ReservationDto updateReservation(@PathVariable(name = "reservation_id") Long reservation_id, @RequestBody ReservationDto updatedReservation) {
         return reservationService.updateReservation(reservation_id, updatedReservation);
     }
 
