@@ -70,8 +70,8 @@ public class Car {
 //    @OneToMany( mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private Set<Review> reviewSet = new HashSet<>();
 //
-//    @ManyToOne
-//    @JoinColumn(name = "carId", nullable = false)
-//    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "carId", nullable = false)
+    private Category category;
 
 }
