@@ -64,14 +64,14 @@ public class Car {
     @Column(name = "Amount")
     private double amount;
 
-//    @OneToMany( mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Set<Reservation> reservationSet = new HashSet<>();
-//
-//    @OneToMany( mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Set<Review> reviewSet = new HashSet<>();
-//
+    @OneToMany( mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Reservation> reservationSet = new HashSet<>();
+
+    @OneToMany( mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Review> reviewSet = new HashSet<>();
+
     @ManyToOne
-    @JoinColumn(name = "carId", nullable = false)
+    @JoinColumn(name = "categoryId", nullable = false)
     private Category category;
 
 }
