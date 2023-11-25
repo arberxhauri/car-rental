@@ -1,5 +1,6 @@
 package com.example.carrental.dto;
 
+import com.example.carrental.entity.Category;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -45,4 +46,8 @@ public class CarDto {
 
     @PositiveOrZero(message = "Amount must be a positive number or zero")
     private double amount;
+
+    private long categoryId;
+
+    private CategoryDto categoryDto;
 }

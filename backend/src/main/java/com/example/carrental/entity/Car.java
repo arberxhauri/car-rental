@@ -24,7 +24,7 @@ import java.util.UUID;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotBlank(message = "Brand cannot be blank")

@@ -32,7 +32,7 @@ public class SecurityConfiguration {
         http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((authorize) -> authorize.requestMatchers(HttpMethod.GET, "/api/cars/list").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/reviews/list").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 ).httpBasic(Customizer.withDefaults());
 
         return http.build();

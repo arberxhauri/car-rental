@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav-item.active {
+  border-radius: 5px;
+  color: white;
+}
+
+.nav-item.active:hover {
+  background-color: #6a0080;
+  color: white;
+}
+
+.nav-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Use the default color (usually black) */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.btn.custom-button:hover,
+.btn.custom-button:hover .me-2 {
+  color: white !important;
+  background-color: #9400D3 !important;
+}
+
+
+

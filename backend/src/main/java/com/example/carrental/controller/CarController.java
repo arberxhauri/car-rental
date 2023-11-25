@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/cars")
@@ -38,10 +39,10 @@ public class CarController {
         return carService.findById(id);
     }
 
-//    @GetMapping("/{categoryId}")
-//    public List<CarDto> findByCategoryId(@PathVariable(name = "categoryId") UUID categoryId){
-//        return carService.findByCategoryId(categoryId);
-//    }
+    @GetMapping("/findByCategory/{categoryId}")
+    public List<CarDto> findByCategoryId(@PathVariable(name = "categoryId") long categoryId){
+        return carService.findByCategoryId(categoryId);
+    }
 
     @PutMapping("/update/{carId}")
     public CarDto updateCar(@RequestBody CarDto carDto,

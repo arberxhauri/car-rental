@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class CarMapper {
 
+    private CategoryMapper categoryMapper;
+
     public Car mapToEntity(CarDto carDto){
         Car car = new Car();
         car.setId(carDto.getId());
@@ -35,6 +37,8 @@ public class CarMapper {
         carDto.setYear(car.getYear());
         carDto.setLicensePlate(car.getLicensePlate());
         carDto.setStatus(car.getStatus());
+        carDto.setCategoryId(car.getCategory().getId());
+        carDto.setCategoryDto(categoryMapper.mapToDto(car.getCategory()));
 
         return carDto;
     }

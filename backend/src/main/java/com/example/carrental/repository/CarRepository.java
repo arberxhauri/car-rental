@@ -9,6 +9,8 @@ import java.util.UUID;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
     Optional<Car> findByLicensePlate(String licensePlate);
+
+    List<Car> findByCategoryId(long categoryId);
 //    List<Car> findByCategoryId(UUID categoryId);
 
 }
