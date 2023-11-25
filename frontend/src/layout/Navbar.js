@@ -17,34 +17,22 @@ export default function Navbar() {
     setReservationsMenu(location.pathname.includes("/reservations"));
   }, [location.pathname]);
 
-
-  const toggleCategoryMenu = () => {
-    setShowCategoryMenu(!showCategoryMenu);
-    setShowCarsMenu(false);
-    setShowCustomersMenu(false);
-    setReservationsMenu(false);
-  };
-
   const toggleCarsMenu = () => {
     setShowCarsMenu(!showCarsMenu);
     setShowCustomersMenu(false);
     setReservationsMenu(false);
-    setShowCategoryMenu(false);
   };
 
   const toggleCustomersMenu = () => {
     setShowCustomersMenu(!showCustomersMenu);
     setShowCarsMenu(false);
     setReservationsMenu(false);
-    setShowCategoryMenu(false);
-
   };
 
   const toggleReservationsMenu = () => {
     setReservationsMenu(!showReservationsMenu);
     setShowCarsMenu(false);
     setShowCustomersMenu(false);
-    setShowCategoryMenu(false);
 
   };
 
@@ -55,15 +43,6 @@ export default function Navbar() {
             <FontAwesomeIcon icon={faCar} className="me-2" />
             Car Rent
           </Link>
-
-          <div className={`nav-item ${showCategoryMenu ? "active" : ""}`}>
-              <button className="nav-link">
-                <Link to="/category" className="nav-link">
-                  <FontAwesomeIcon icon={faPerson} className="me-2" />
-                  Category
-                </Link>
-              </button>
-            </div>
           
 
           <div className="container-fluid d-flex">

@@ -6,8 +6,7 @@ import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-
 import AddCustomer from './Customer/AddCustomer';
 import EditCustomer from './Customer/EditCustomer';
 import ViewCustomer from './Customer/ViewCustomer';
-import AddReview from './Customer/AddReview';
-import AddCategory from './category/AddCategory';
+
 import Footer from './layout/Footer';
 import Cars from "./cars/Index";
 import EditCar from "./cars/EditCar"
@@ -19,7 +18,6 @@ import Reservation from "./reservations/Index";
 import AddReservation from "./reservations/AddReservation";
 import ViewReservation from "./reservations/ViewReservation";
 import EditReservation from "./reservations/EditReservation";
-import Category from './category/Index';
 
 
 function App() {
@@ -36,8 +34,6 @@ function App() {
             <div className="content">
                 <Routes>
                     <Route exact path="login" element={<Login/>}/>
-                    {/*Category*/}
-                    <Route exact path='category/' element={<Category/>}/>
 
                     {/*CUSTOMER*/}
                     <Route exact path="customer/" element={<Home/>}/>
